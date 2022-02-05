@@ -1,0 +1,42 @@
+== What does this application do?
+
+This a model application to let college open courses and also allowing students to register 
+
+
+== Technical Details
+- REST framework: link:https://spring.io/[Spring Boot]
+- Database: PostgreSQL
+- Version control: git
+- Build automation: maven
+- Containerization tools: Docker
+
+
+== Developer Guide to run the code locally
+==== `git clone https://github.com/kalyansagi/student-portal.git`
+
+==== `cd /student-portal`
+
+==== `git checkout main`
+
+==== Local Postgres DB
+
+* Spin up local PostgreSQL to serve as database
+
+[source,bash]
+----
+./scripts/localPostgres.sh
+----
+
+----
+ `mvn clean install`
+----
+
+----
+ `java -jar -Dspring.profiles.active=local target/student-portal-0.0.1.jar`
+----
+
+== Accessing the application* Entry point to the application
+http://localhost:8080/index.html#
+
+* Swagger documentation for more details
+http://localhost:8080/swagger-ui.html#/
