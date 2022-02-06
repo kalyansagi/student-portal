@@ -17,19 +17,19 @@ public class CourseService {
         this.courseRepository = courseRepository;
     }
 
-    public void addCourse(final CourseRequest courseRequest) {
+    public void addCourse(final String courseId, final String courseName, final String departmentName) {
 
         Course course = Course.builder()
                 .uuid(UUID.randomUUID().toString())
-                .courseId(courseRequest.getCourseId())
-                .courseName(courseRequest.getCourseName())
-                .departmentName(courseRequest.getDepartmentName())
+                .courseId(courseId)
+                .courseName(courseName)
+                .departmentName(departmentName)
                 .build();
         courseRepository.save(course);
 
     }
 
-    public List<Course> findAllCoursesByDepartment(final String departmentName){
+    public List<Course> findAllCoursesByDepartment(final String departmentName) {
         return courseRepository.findAllCoursesByDepartment(departmentName);
     }
 }

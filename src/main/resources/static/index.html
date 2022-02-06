@@ -89,7 +89,6 @@
     }
 
     body {
-        /*background-image: url('css.jpg');*/
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: 100% 100%;
@@ -146,14 +145,13 @@
 <div class="tab">
     <button class="tablinks" onclick="openCity(event, 'Student Registration')" id="defaultOpen">Student Registration
     </button>
-    <button class="tablinks" onclick="openCity(event, 'Faculty Registration')">Faculty Registration</button>
     <button class="tablinks" onclick="openCity(event, 'Course Registration')">Course Registration</button>
+    <button class="tablinks" onclick="openCity(event, 'Faculty Registration')">Faculty Registration</button>
+
 </div>
 
 <div id="Student Registration" class="tabcontent">
     <h3>Student Registration</h3>
-    <p>A place where new Doctors can be onboarded, and serve the community through the next generation medical
-        platform</p>
     <div style="">
         <form action="/student/create" method="post" enctype="multipart/form-data">
             <span style="font-family: verdana; ">
@@ -175,7 +173,30 @@
                     <label>Course : </label>
                     <input name="course" name="course" placeholder="Enter a Course" autofocus>
                 <p>
-                    <button class="button">Create Profile</button>
+                    <button class="button">Add Registration</button>
+            </span>
+        </form>
+    </div>
+</div>
+
+<div id="Course Registration" class="tabcontent">
+    <h3>Course Registration</h3>
+    <div style="">
+        <form action="/course/add" method="post" enctype="multipart/form-data">
+            <span style="font-family: verdana; ">
+                <p>
+                    <label>Course Id : </label>
+                    <input id="courseId" name="courseId" placeholder="Enter courseId" autofocus/>
+                <p>
+                <p>
+                    <label>Course Name : </label>
+                    <input name="courseName" name="courseName" placeholder="Enter Course Name" autofocus>
+                <p>
+                <p>
+                    <label>Department : </label>
+                    <input name="departmentName" name="departmentName" placeholder="Enter Department" autofocus>
+                <p>
+                    <button class="button">Add Course</button>
             </span>
         </form>
     </div>
@@ -186,10 +207,6 @@
     <p>Coming soon...</p>
 </div>
 
-<div id="Course Registration" class="tabcontent">
-    <h3>Course Registration</h3>
-    <p>Coming soon...</p>
-</div>
 
 <script>
     function openCity(evt, cityName) {

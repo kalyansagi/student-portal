@@ -14,5 +14,5 @@ import lombok.ToString;
 public class StudentResponse {
     private String ksuId;
     private String email;
-    private String confimationCode;
+    private String confirmationCode;
 }

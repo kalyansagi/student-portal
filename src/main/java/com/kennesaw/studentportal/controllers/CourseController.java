@@ -21,15 +21,19 @@ public class CourseController {
     }
 
 
-    @PostMapping(value = "/course/add", name = "adding new course")
-    public ResponseEntity<String> addCourse(@RequestBody final CourseRequest courseRequest) {
-        courseService.addCourse(courseRequest);
+    @PostMapping(value = "/course/add",
+            consumes = {"multipart/form-data"})
+    public ResponseEntity<String> addCourse(@RequestParam(value = "courseId", required = true) final String courseId,
+                                            @RequestParam(value = "courseName", required = true) final String courseName,
+                                            @RequestParam(value = "departmentName", required = true) final String departmentName) {
+
+        courseService.addCourse(courseId, courseName, departmentName);
         return new ResponseEntity<>("A Course request has been submitted. It will reflect in course list in next few mins", HttpStatus.OK);
 
     }
 
 
-    @GetMapping(value = "course/", name = "query courses by department")
+    @GetMapping(value = "/course/", name = "query courses by department")
     public List<Course> findAllCoursesByDepartment(@RequestParam(name = "departmentName") final String departmentName) {
         return courseService.findAllCoursesByDepartment(departmentName);
     }

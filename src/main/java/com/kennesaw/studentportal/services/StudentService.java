@@ -28,7 +28,7 @@ public class StudentService {
         return StudentResponse.builder()
                 .ksuId(ksuId)
                 .email(email)
-                .confimationCode(UUID.randomUUID().toString())
+                .confirmationCode(UUID.randomUUID().toString())
                 .build();
 
     }
