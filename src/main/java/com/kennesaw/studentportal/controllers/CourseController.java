@@ -33,7 +33,7 @@ public class CourseController {
     }
 
 
-    @GetMapping(value = "/course/", name = "query courses by department")
+    @GetMapping(value = "/course", name = "query courses by department")
     public List<Course> findAllCoursesByDepartment(@RequestParam(name = "departmentName") final String departmentName) {
         return courseService.findAllCoursesByDepartment(departmentName);
     }

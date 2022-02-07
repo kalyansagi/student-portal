@@ -21,7 +21,7 @@ public class FacultyController {
     @PostMapping(value = "/faculty/add", name = "adding new faculty")
     public ResponseEntity<String> addFaculty(@RequestBody final Faculty faculty) {
         facultyService.addFaculty(faculty);
-        return new ResponseEntity<>("A Course request has been submitted. It will reflect in course list in next few mins", HttpStatus.OK);
+        return new ResponseEntity<>("Faculty added.", HttpStatus.OK);
 
     }
 
