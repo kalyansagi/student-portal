@@ -8,6 +8,8 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.stream.Collectors;
 
 @Repository
 @RequiredArgsConstructor
@@ -43,9 +45,7 @@ public class FacultyRepository {
         } catch (Exception e) {
             System.out.println("exception occurred" + e);
         }
-
-        return null;
+        return (ArrayList<Faculty>) Collections.singletonList(Faculty.builder().build());
     }
-
 
 }
