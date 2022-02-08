@@ -5,6 +5,8 @@ import com.kennesaw.studentportal.repository.FacultyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 
 @Service
 public class FacultyService {
@@ -16,8 +18,12 @@ public class FacultyService {
         this.facultyRepository = facultyRepository;
     }
 
-    public void addFaculty(final Faculty faculty)  {
+    public void addFaculty(final Faculty faculty) {
         facultyRepository.insertFacultyRecord(faculty);
 
+    }
+
+    public ArrayList<Faculty> findFacultyOfDepartment(final String departmentName) {
+        return facultyRepository.findFacultyOfDepartment(departmentName);
     }
 }

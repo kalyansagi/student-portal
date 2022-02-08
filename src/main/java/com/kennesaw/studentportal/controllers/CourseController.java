@@ -1,6 +1,5 @@
 package com.kennesaw.studentportal.controllers;
 
-import com.kennesaw.studentportal.entities.CourseRequest;
 import com.kennesaw.studentportal.entities.database.Course;
 import com.kennesaw.studentportal.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,17 +1,14 @@
 package com.kennesaw.studentportal.controllers;
 
 import com.kennesaw.studentportal.entities.StudentResponse;
-import com.kennesaw.studentportal.entities.database.Course;
 import com.kennesaw.studentportal.entities.database.Student;
 import com.kennesaw.studentportal.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class StudentController {

@@ -1,6 +1,5 @@
 CREATE user studentportal WITH PASSWORD 'studentportal';
 
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO studentportal;
 
 create table faculty
 (
@@ -13,3 +12,6 @@ create table faculty
     department_name varchar(255),
     teaching_course varchar(255)
 );
+
+
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO studentportal;

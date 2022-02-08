@@ -7,12 +7,15 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+
 @Repository
 @RequiredArgsConstructor
 public class FacultyRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
+    private final FacultyMapper facultyMapper;
 
-    private final String INSERT_FACULTY_RECORD = "Insert into public.faculty (ksu_id, email, first_name, last_name, department_name, teaching_course ) " +
+    private final String INSERT_FACULTY_RECORD = "Insert into faculty (ksu_id, email, first_name, last_name, department_name, teaching_course ) " +
             "values ( " +
             ":ksu_id, :email, :first_name, :last_name, :department_name, :teaching_course)";
 
@@ -33,4 +36,16 @@ public class FacultyRepository {
                 .addValue("department_name", faculty.getDepartmentName())
                 .addValue("teaching_course", faculty.getTeachingCourse());
     }
+
+    public ArrayList<Faculty> findFacultyOfDepartment(final String departmentName) {
+        try {
+            return new ArrayList<>(jdbcTemplate.query("SELECT * FROM FACULTY WHERE department_name = :departmentName;", new MapSqlParameterSource("departmentName", departmentName), facultyMapper));
+        } catch (Exception e) {
+            System.out.println("exception occurred" + e);
+        }
+
+        return null;
+    }
+
+
 }
